@@ -83,7 +83,7 @@ static const char *morph_vert =
 	vec3 slerp(vec3 p0, vec3 p1, float t) {\n\
 		float dotp = dot(normalize(p0), normalize(p1));\n\
 		dotp = clamp(dotp, -0.9999, 0.9999);\n\
-		float theta = acos(dotp) * t;\n\
+		float theta = acos(dotp);\n\
 		float k = sin(theta);\n\
 		return (p0 * sin(theta * (1 - t)) + p1 * sin(theta * t)) / k;\n\
 	}\n\

@@ -471,12 +471,12 @@ int main(int argc, char ** args)
 		delta = (end - start).count() / 1000000000.f;
 		start = end;
 
-		if (elapsed < frameTime) {
+		/*if (elapsed < frameTime) {
 			auto startSleep = std::chrono::high_resolution_clock::now();
 			auto sleepTime = frameTime - elapsed;
 			std::this_thread::sleep_for(sleepTime);
 			carry = sleepTime - (std::chrono::high_resolution_clock::now() - startSleep);
-		}
+		}*/
 
 		// GUI input
 		ImGui_ImplGlfwGL3_NewFrame();

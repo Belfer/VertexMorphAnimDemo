@@ -416,7 +416,7 @@ int main(int argc, char ** args)
 
 	// Shader vars
 	int drawMode = 3;
-	float lightIntensity = 1.0f;
+	float lightIntensity = 0.75f;
 	glm::vec3 lightDir(0, -1, -1.2);
 	glm::vec3 lightCol(1, 1, 1);
 	glm::vec3 diffuseCol(1, 1, 1);
@@ -426,16 +426,16 @@ int main(int argc, char ** args)
 
 	float time = 0.f;
 	float animSpeed = 1.f;
-	bool animate = false;
+	bool animate = true;
 	int lerp = 0;
 	int target1 = 0;
 	int target2 = 1;
 
-	bool playRandom = false;
+	bool playRandom = true;
 
 	// Camera control vars
-	glm::vec3 camPos(0, 5.0f, 0.0f);
-	glm::quat camRot; // Used to transform forward dir
+	glm::vec3 camPos(0, 5.0f, 20.0f);
+	glm::quat camRot = glm::quat(glm::radians(glm::vec3(0, 180, 0))); // Used to transform forward dir
 	glm::vec3 move(0);
 	glm::vec3 angles = glm::eulerAngles(camRot);
 
@@ -462,6 +462,8 @@ int main(int argc, char ** args)
 	float moveSensitivity = 5.0f;
 	bool drawBounds = true;
 	bool vsync = VSYNC;
+
+	loadScene(std::string(RESOURCE_PATH) + "/demo1.obj", bounds, meshes);
 
 	while (!glfwWindowShouldClose(window))
 	{
